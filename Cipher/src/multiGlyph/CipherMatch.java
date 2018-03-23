@@ -1,6 +1,5 @@
 package multiGlyph;
 
-import javax.crypto.Cipher;
 import java.util.Arrays;
 
 import static multiGlyph.Ciphers.*;
@@ -8,12 +7,6 @@ import static multiGlyph.Ciphers.*;
 public class CipherMatch {
     private int column = 0;
     private int height = 0;
-
-    private int vumarkColumn;
-    private int vumarkGlyphColor1;
-    private int vumarkGlyphColor2;
-
-    private boolean found = false;
 
     int cipherChosen;
 
@@ -37,7 +30,6 @@ public class CipherMatch {
 
     void vumarkGlyph(int glyphColor, int column) {
         this.column = column;
-        this.vumarkGlyphColor1 = glyphColor;
 
         for (int i = 0; i <= 5; i ++) {
             if (CipherOptions[i][1][column] == glyphColor) {
@@ -51,7 +43,7 @@ public class CipherMatch {
             }
         }
 
-        System.out.println("Vumark and bonus glyph scored in "+glyphColumn(getColumn())+" column");
+        //System.out.println("Vumark glyph scored in "+glyphColumn(getColumn())+" column");
     }
 
     void vumarkGlyph(int glyphColor, int glyphColor2, int column) {
@@ -89,6 +81,7 @@ public class CipherMatch {
             } else {
                 cipherCompatible[i] = false;
             }
+
         }
 
         //System.out.println("Vumark and bonus glyph scored in "+glyphColumn(getColumn())+" column");
@@ -115,7 +108,7 @@ public class CipherMatch {
     void printCipher () {
         for (int i = 0; i <= 5; i ++) {
             if (cipherCompatible[i]) {
-                System.out.println(CipherNumber(i));
+                System.out.println(cipherNumber(i));
                 System.out.println(Arrays.deepToString(CipherOptions[i]));
             }
         }
@@ -132,7 +125,7 @@ public class CipherMatch {
     }
 
     private boolean searchSingle(int[][] matrix, int[][] submatrix) {
-        found = false;
+        boolean found = false;
         loopX: for (int x = 0; x < matrix.length - submatrix.length + 1; ++x)
             loopY: for (int y = 0; y < matrix[x].length - submatrix[0].length + 1; ++y)
             {
@@ -170,25 +163,25 @@ public class CipherMatch {
         return height;
     }
 
-    String CipherNumber (int number) {
+    String cipherNumber (int number) {
         switch (number) {
             case 0:
-                return "Grey Frog";
+                return "Grey Bird";
             case 1:
-                return "Brown Frog";
+                return "Brown Bird";
             case 2:
                 return "Grey Snake";
             case 3:
                 return "Brown Snake";
             case 4:
-                return "Grey Bird";
+                return "Grey Frog";
             case 5:
-                return "Brown Bird";
+                return "Brown Frog";
         }
         return "None";
     }
 
-    private String glyphColor(int color) {
+    String glyphColor(int color) {
         if (color==1) {
             return "Grey";
         } else {
@@ -196,7 +189,11 @@ public class CipherMatch {
         }
     }
 
-    private String glyphColumn(int column) {
+    String glyphColors (int[][] hopper) {
+        return glyphColor(hopper[1][0])+"_"+glyphColor(hopper[2][0]);
+    }
+
+    String glyphColumn(int column) {
         if (column==0) {
             return "Left";
         } else if (column==1) {
