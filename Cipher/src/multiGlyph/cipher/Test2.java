@@ -1,4 +1,4 @@
-package multiGlyph;
+package multiGlyph.cipher;
 
 public class Test2 {
     private static CipherMatch cipherTest = new CipherMatch();
@@ -25,7 +25,8 @@ public class Test2 {
     };
 
     public static void main(String[] args) {
-        count6glyph();
+        //count6glyph();
+        complete5glyph();
 
     }
 

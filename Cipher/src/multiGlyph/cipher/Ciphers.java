@@ -1,4 +1,4 @@
-package multiGlyph;
+package multiGlyph.cipher;
 
 class Ciphers {
     // 1 = grey

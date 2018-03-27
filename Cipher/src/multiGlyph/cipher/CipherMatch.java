@@ -1,14 +1,18 @@
-package multiGlyph;
+package multiGlyph.cipher;
 
 import java.util.Arrays;
 
-import static multiGlyph.Ciphers.*;
+import static multiGlyph.cipher.Ciphers.*;
 
 public class CipherMatch {
     private int column = 0;
     private int height = 0;
 
     int cipherChosen;
+
+    public enum GlyphColor {
+        GREY, BROWN, UNKOWN
+    }
 
     boolean cipherValid = false;
 
@@ -26,6 +30,22 @@ public class CipherMatch {
     public void setSingleGlyph(int backGlyph, int frontGlyph) {
         submatrix[1][0] = backGlyph;
         submatrix[2][0] = frontGlyph;
+    }
+
+    public void setLoad1 (GlyphColor glyphColor1, GlyphColor glyphColor2, int vumarkColumn) {
+
+    }
+
+    public void setLoad1 (GlyphColor glyphColor1, int vumarkColumn) {
+
+    }
+
+    public void setLoad2 (GlyphColor glyphColor1, GlyphColor glyphColor2) {
+
+    }
+
+    public void calculate () {
+
     }
 
     void vumarkGlyph(int glyphColor, int column) {
