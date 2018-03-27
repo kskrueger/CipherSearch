@@ -4,7 +4,7 @@ class Ciphers {
     // 1 = grey
     // 2 = brown
 
-    static int[][][] CipherOptions = new int[][][] {
+    /*static int[][][] CipherOptions = new int[][][] {
             { //greyBird
                     {0,0,0}, //fake bottom row to simulate ground level
                     {1,2,1}, //1st row, left (0) to right (2)
@@ -35,9 +35,9 @@ class Ciphers {
                     {1,1,2}, //1st row, left (0) to right (2)
                     {1,2,2}
             }
-    };
+    };*/
 
-    /*static int[][][] CipherOptions = new int[][][] {
+    static int[][][] CipherOptions = new int[][][] {
             { //greyBird
                     {0,0,0}, //fake bottom row to simulate ground level
                     {1,2,1}, //1st row, left (0) to right (2)
@@ -80,7 +80,7 @@ class Ciphers {
                     {2,2,1}, //3rd row
                     {2,1,1}  //top row of box
             }
-    };*/
+    };
 
     static int[][][] CipherOptionsOrgin = new int[][][] {
             { //greyBird

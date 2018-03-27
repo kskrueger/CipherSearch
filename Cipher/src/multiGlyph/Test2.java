@@ -25,7 +25,8 @@ public class Test2 {
     };
 
     public static void main(String[] args) {
-        complete4glyph();
+        count6glyph();
+
     }
 
     private static void complete4glyph() {
@@ -102,6 +103,37 @@ public class Test2 {
                                 +", "+cipherTest.cipherNumber(cipherTest.cipherChosen));
 
                         totalCount += 1;
+                        if (cipherTest.checkCipherValid()) {
+                            cipherCount += 1;
+                        }
+                        Ciphers.reset();
+                    }
+                }
+            }
+        }
+
+        System.out.println("Total Count: "+totalCount);
+        System.out.println("Compatible Count: "+cipherCount);
+    }
+
+    private static void count6glyph() {
+        for (int vumarkColumn = 0; vumarkColumn <=2; vumarkColumn ++) {
+            for (int firstLoad = 0; firstLoad <= 3; firstLoad++) {
+                for (int secondLoad = 0; secondLoad <= 3; secondLoad++) {
+                    for (int thirdLoad = 0; thirdLoad <= 3; thirdLoad++) {
+                        cipherTest.vumarkGlyph(load[firstLoad], vumarkColumn);
+                        cipherTest.search(load[secondLoad]);
+                        cipherTest.search(load[thirdLoad]);
+
+                        System.out.println(cipherTest.glyphColumn(vumarkColumn)
+                                + ", " + cipherTest.glyphColors(load[firstLoad])
+                                + ", " + cipherTest.glyphColors(load[secondLoad])
+                                + ", " + cipherTest.glyphColors(load[thirdLoad])
+                                + ", " + cipherTest.checkCipherValid()
+                                + ", " + cipherTest.cipherNumber(cipherTest.cipherChosen));
+
+                        totalCount += 1;
+
                         if (cipherTest.checkCipherValid()) {
                             cipherCount += 1;
                         }
