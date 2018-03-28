@@ -10,7 +10,7 @@ Determine the color of an object using weights and biases calculated by a python
 machine learning algorithm
 */
 
-public class MLIdentifyingColors {
+public class GlyphColorDetection {
     //Initialize weights for each color and biases
     private static final double ALPHA_COEF = -0.7219657;
     private static final double RED_COEF = 4.41198906;
