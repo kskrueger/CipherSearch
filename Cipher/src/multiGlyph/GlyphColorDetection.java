@@ -28,10 +28,10 @@ public class GlyphColorDetection {
 
     public CipherMatch.GlyphColor GlyphColor() {
         colorInt = (int) Math.round(sigmoid((
-                robot.firstGlyphColorSensor.alpha() * ALPHA_COEF +
+                /*robot.firstGlyphColorSensor.alpha() * ALPHA_COEF +
                 robot.firstGlyphColorSensor.red() * RED_COEF +
                 robot.firstGlyphColorSensor.green() * GREEN_COEF +
-                robot.firstGlyphColorSensor.blue() * BLUE_COEF) + BIAS));
+                robot.firstGlyphColorSensor.blue() * BLUE_COEF) + BIAS))*/1)));
 
         return (colorInt == 0) ? GREY : BROWN;
     }
