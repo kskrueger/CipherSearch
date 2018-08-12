@@ -18,20 +18,17 @@ public class PositionTracking {
     private boolean positionThread = false;
     private boolean driveThread = false;
 
-    LinearOpMode opMode;
-    DcMotor xWheel, yWheel, frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor;
+    /*LinearOpMode opMode;
+    DcMotor xWheel, yWheel, frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor;*/
 
-    public PositionTracking (LinearOpMode opMode,
-                             DcMotor rightIntake, DcMotor leftIntake,
-                             DcMotor frontLeftMotor, DcMotor rearLeftMotor,
-                             DcMotor frontRightMotor, DcMotor rearRightMotor) {
-        this.opMode = opMode;
+    public PositionTracking () {
+        /*this.opMode = opMode;
         this.xWheel = rightIntake;
         this.yWheel = leftIntake;
         this.frontLeftMotor = frontLeftMotor;
         this.rearLeftMotor = rearLeftMotor;
         this.frontRightMotor = frontRightMotor;
-        this.rearRightMotor = rearRightMotor;
+        this.rearRightMotor = rearRightMotor;*/
     }
 
     public int xPosition() {
@@ -47,12 +44,12 @@ public class PositionTracking {
         double forwrd = forwards * -1;
         double strafe = horizontal;
 
-        double gyro_radians = heading * Math.PI/180;
+        double gyro_radians = /*heading **/ Math.PI/180;
         double temp = forwrd * cos(gyro_radians) + strafe * sin(gyro_radians);
         strafe = -forwrd * sin(gyro_radians) + strafe * cos(gyro_radians);
         forwrd = temp;
 
-        robotCentric(-forwrd,strafe,turning);
+        //robotCentric(-forwrd,strafe,turning);
     }
 
     public void position (int xInput, int yInput, int heading) {
@@ -88,7 +85,7 @@ public class PositionTracking {
             @Override
             public void run()
             {
-                while(!opMode.isStopRequested()&&opMode.opModeIsActive()&&positionThread) {
+                while(/*!opMode.isStopRequested()&&opMode.opModeIsActive()&&*/positionThread) {
                     position(1,1,1);
                 }
             }
@@ -102,9 +99,9 @@ public class PositionTracking {
             @Override
             public void run()
             {
-                while(!opMode.isStopRequested()&&opMode.opModeIsActive()&&driveThread) {
-                    xPID.
-                    drivePower();
+                while(/*!opMode.isStopRequested()&&opMode.opModeIsActive()&&*/driveThread) {
+                    //xPID.
+                    //drivePower();
                 }
             }
         }).start();
